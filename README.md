@@ -27,12 +27,9 @@
 
 ## 🚀 安装方法
 
-### 方法一：从源码安装（推荐开发者）
+### 方法：从源码安装（推荐开发者）
 
-1. 克隆本仓库：
-   ```bash
-   git clone https://github.com/wuzhidemao/dino-game-extension.git
-   ```
+1. 从[发行](https://github.com/wuzhidemao/dino-extension/releases/tag/%E5%8F%91%E8%A1%8C)下载文件
 
 2. 打开 Edge 浏览器，地址栏输入 `edge://extensions/`
 
@@ -41,20 +38,6 @@
 4. 点击 **「加载解压缩的扩展」**
 
 5. 选择克隆下来的 `dino-game-extension` 文件夹
-
-### 方法二：打包安装
-
-1. 下载 release 中的 `.zip` 文件
-
-2. 解压到任意目录
-
-3. 打开 `edge://extensions/`
-
-4. 开启「开发人员模式」
-
-5. 点击「加载解压缩的扩展」
-
-6. 选择解压后的文件夹
 
 ## 🎮 操作说明
 
@@ -119,3 +102,7 @@ dino-game-extension/
 ## 📄 许可证
 
 MIT License - 自由使用、修改和分发
+
+---
+
+Made with ❤️ by [眠](https://github.com/wuzhidemao)
