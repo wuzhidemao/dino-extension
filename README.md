@@ -2,7 +2,7 @@
 
 在任意网页插入完整的谷歌小恐龙游戏！
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![Version](https://img.shields.io/badge/version-1.0.1-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 ## ✨ 功能特性
@@ -20,10 +20,11 @@
 | 👆 触屏支持 | 点击/触摸屏幕跳跃 |
 | 📊 FPS显示 | 实时帧率监控 |
 | 🎯 任意网页 | 在所有网页都能启动游戏 |
+| 🔒 样式隔离 | Shadow DOM 隔离，不与页面样式冲突 |
 
 ## 📸 截图
 
-![Dino Game](https://raw.githubusercontent.com/wuzhidemao/dino-extension/refs/heads/main/%E6%88%AA%E5%9B%BE.jpg))
+![Dino Game](https://raw.githubusercontent.com/wuzhidemao/dino-extension/refs/heads/main/%E6%88%AA%E5%9B%BE.jpg)
 
 ## 🚀 安装方法
 
@@ -33,11 +34,11 @@
 
 2. 打开 Edge 浏览器，地址栏输入 `edge://extensions/`
 
-3. 开启左下角 **「开发人员模式」**
+3. 开启左下角 **开发人员模式**
 
-4. 点击 **「加载解压缩的扩展」**
+4. 点击 **加载解压缩的扩展**
 
-5. 选择克隆下来的 `dino-game-extension` 文件夹
+5. 选择 `dino-game-extension` 文件夹
 
 ## 🎮 操作说明
 
@@ -60,7 +61,8 @@
 - **移动**：拖动标题栏
 - **缩放**：拖动窗口边角
 - **全屏**：点击标题栏绿色圆点
-- **关闭**：点击红色圆点或按 `Esc`
+- **最小化**：点击黄色圆点
+- **关闭**：点击红色圆点
 - **切换主题**：点击 ☀️/🌙 按钮
 - **开关音效**：点击 🔊/🔇 按钮
 
@@ -68,16 +70,16 @@
 
 ```
 dino-game-extension/
-├── manifest.json      # 插件配置文件
+├── manifest.json     # 插件配置文件
 ├── popup.html        # 弹窗界面
 ├── popup.js          # 弹窗逻辑
-├── content.js        # 游戏核心引擎
-├── content.css       # 游戏样式
-├── icons/           # 图标资源
+├── content.js        # 游戏核心引擎（含内联CSS）
+├── content.css       # 游戏样式（备用）
+├── icons/            # 图标资源
 │   ├── icon16.svg
 │   ├── icon48.svg
 │   └── icon128.svg
-└── README.md        # 本文件
+└── README.md         # 本文件
 ```
 
 ## 🔧 技术栈
@@ -85,15 +87,40 @@ dino-game-extension/
 - Vanilla JavaScript（无依赖）
 - HTML5 Canvas 渲染
 - Web Audio API 音效
+- Shadow DOM 样式隔离
 - Chrome Extension Manifest V3
 
 ## 📋 更新日志
+
+### v1.0.1 (2026-03-19)
+- 🔒 使用 Shadow DOM 实现样式隔离，解决与页面样式冲突问题
+- 🛡️ 内联 CSS 绕过 CSP 限制，提升兼容性
+- 📜 添加 host_permissions 确保所有页面可用
+- ⚠️ 增强 localStorage 等受限 API 的容错处理
 
 ### v1.0.0 (2026-03-19)
 - 🎉 首次发布
 - 完整的小恐龙游戏引擎
 - 夜间模式、音效、多尺寸窗口
 - 拖拽、缩放、全屏功能
+
+## ❓ 常见问题
+
+### 为什么某些网站无法使用？
+
+极少数网站可能因以下原因无法运行：
+
+- 高级 CSP 完全禁止内联脚本
+- 网站对浏览器扩展做了检测和阻止
+- 特殊渲染模式的页面
+
+遇到这种情况，可以尝试刷新页面或更换网站使用。
+
+### 如何卸载？
+
+1. 打开 `edge://extensions/`
+2. 找到「Dino Game」插件
+3. 点击「移除」
 
 ## 🤝 贡献
 

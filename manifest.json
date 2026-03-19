@@ -1,19 +1,35 @@
 {
   "manifest_version": 3,
-  "name": "Dino Game - 小恐龙游戏",
-  "version": "1.0.0",
-  "description": "在任意网页插入完整的谷歌小恐龙游戏",
+  "name": "🦕 Dino Game - 随处玩小恐龙",
+  "version": "1.0.1",
+  "description": "在任意网页插入完整的谷歌小恐龙游戏，支持拖拽、缩放、夜间模式、音效、全屏等完整功能",
   "permissions": ["storage", "activeTab"],
+  "host_permissions": ["<all_urls>"],
   "action": {
     "default_popup": "popup.html",
-    "default_title": "小恐龙游戏"
+    "default_icon": {
+      "16":  "icons/icon16.svg",
+      "48":  "icons/icon48.svg",
+      "128": "icons/icon128.svg"
+    }
   },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
       "js": ["content.js"],
-      "css": ["content.css"],
-      "run_at": "document_end"
+      "run_at": "document_end",
+      "all_frames": true
     }
-  ]
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["icons/*"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "icons": {
+    "16":  "icons/icon16.svg",
+    "48":  "icons/icon48.svg",
+    "128": "icons/icon128.svg"
+  }
 }
