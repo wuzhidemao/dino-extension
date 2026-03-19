@@ -30,7 +30,7 @@
 
 ### 方法：从源码安装（推荐开发者）
 
-1. 从[发行](https://github.com/wuzhidemao/dino-extension/releases/tag/%E5%8F%91%E8%A1%8C)下载文件
+1. 从[发行](https://github.com/wuzhidemao/dino-extension/releases)下载文件
 
 2. 打开 Edge 浏览器，地址栏输入 `edge://extensions/`
 
