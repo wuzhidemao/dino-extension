@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小恐龙游戏</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 280px;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      color: #fff;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      padding: 16px;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .header .emoji { font-size: 28px; }
+    .header h1 { font-size: 16px; font-weight: 700; line-height: 1.2; }
+    .header p { font-size: 11px; color: #aaa; }
+    .btn-main {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #e94560, #c23152);
+      border: none;
+      border-radius: 10px;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+    .btn-main:hover { 
+      transform: translateY(-1px); 
+      box-shadow: 0 4px 15px rgba(233,69,96,0.4); 
+    }
+    .btn-main:active { transform: translateY(0); }
+    .divider { height: 1px; background: rgba(255,255,255,0.1); margin: 12px 0; }
+    .section-title { 
+      font-size: 11px; 
+      color: #888; 
+      text-transform: uppercase; 
+      letter-spacing: 1px; 
+      margin-bottom: 8px; 
+    }
+    .options { display: flex; flex-direction: column; gap: 8px; }
+    .option-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+    }
+    .option-row label { color: #ccc; }
+    .toggle {
+      position: relative;
+      width: 36px;
+      height: 20px;
+    }
+    .toggle input { opacity: 0; width: 0; height: 0; }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: #444;
+      border-radius: 20px;
+      transition: 0.3s;
+    }
+    .slider:before {
+      content: '';
+      position: absolute;
+      height: 14px; width: 14px;
+      left: 3px; bottom: 3px;
+      background: white;
+      border-radius: 50%;
+      transition: 0.3s;
+    }
+    input:checked + .slider { background: #e94560; }
+    input:checked + .slider:before { transform: translateX(16px); }
+    .size-btns { display: flex; gap: 6px; }
+    .size-btn {
+      flex: 1;
+      padding: 5px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 6px;
+      color: #ccc;
+      font-size: 11px;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: center;
+    }
+    .size-btn:hover, .size-btn.active {
+      background: rgba(233,69,96,0.3);
+      border-color: #e94560;
+      color: #fff;
+    }
+    .shortcut-hint {
+      margin-top: 12px;
+      padding: 8px 10px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 8px;
+      font-size: 11px;
+      color: #888;
+      line-height: 1.6;
+    }
+    .shortcut-hint span { color: #e94560; font-weight: 600; }
+    .btn-close-all {
+      width: 100%;
+      padding: 8px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      color: #aaa;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-top: 8px;
+    }
+    .btn-close-all:hover { 
+      background: rgba(255,0,0,0.15); 
+      color: #ff6b6b; 
+      border-color: rgba(255,0,0,0.3); 
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="emoji">🦕</div>
+    <div>
+      <h1>小恐龙游戏</h1>
+      <p>在任意网页随时畅玩</p>
+    </div>
+  </div>
+
+  <button class="btn-main" id="btnLaunch">▶ 在当前页面启动游戏</button>
+
+  <div class="divider"></div>
+  <div class="section-title">游戏设置</div>
+  <div class="options">
+    <div class="option-row">
+      <label>夜间模式</label>
+      <label class="toggle">
+        <input type="checkbox" id="darkMode">
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="option-row">
+      <label>音效</label>
+      <label class="toggle">
+        <input type="checkbox" id="soundOn" checked>
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="option-row">
+      <label>窗口大小</label>
+      <div class="size-btns">
+        <div class="size-btn" data-size="small">小</div>
+        <div class="size-btn active" data-size="medium">中</div>
+        <div class="size-btn" data-size="large">大</div>
+        <div class="size-btn" data-size="fullscreen">全屏</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="shortcut-hint">
+    <span>空格 / ↑</span> 跳跃 &nbsp;|&nbsp; <span>↓</span> 俯冲<br>
+    拖拽标题栏移动 &nbsp;|&nbsp; 右上角关闭
+  </div>
+
+  <button class="btn-close-all" id="btnCloseAll">✕ 关闭所有游戏窗口</button>
+
+  <script src="popup.js"></script>
+</body>
+</html>

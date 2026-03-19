@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Dino Game - 小恐龙游戏",
+  "version": "1.0.0",
+  "description": "在任意网页插入完整的谷歌小恐龙游戏",
+  "permissions": ["storage", "activeTab"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "小恐龙游戏"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_end"
+    }
+  ]
+}
