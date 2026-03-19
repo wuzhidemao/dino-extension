@@ -23,7 +23,7 @@
 
 ## 📸 截图
 
-![Dino Game](screenshot.png)
+![Dino Game](https://raw.githubusercontent.com/wuzhidemao/dino-extension/refs/heads/main/%E6%88%AA%E5%9B%BE.jpg))
 
 ## 🚀 安装方法
 
@@ -31,7 +31,7 @@
 
 1. 克隆本仓库：
    ```bash
-   git clone https://github.com/你的用户名/dino-game-extension.git
+   git clone https://github.com/wuzhidemao/dino-game-extension.git
    ```
 
 2. 打开 Edge 浏览器，地址栏输入 `edge://extensions/`
