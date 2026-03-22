@@ -2,7 +2,7 @@
 
 在任意网页插入完整的谷歌小恐龙游戏！
 
-![Version](https://img.shields.io/badge/version-1.0.2-blue)
+![Version](https://img.shields.io/badge/version-2.2-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 > 🎮 工作累了？随时在任意网页来一局经典的小恐龙跑酷游戏！
@@ -87,16 +87,16 @@ cd dino-extension
 ```
 dino-extension/
 ├── manifest.json          # 插件配置文件
-├── popup.html             # 弹窗界面
-├── popup.js               # 弹窗逻辑
-├── content.js             # 游戏核心引擎（含内联CSS）
-├── content.css            # 游戏样式（备用）
-├── make-icons.js          # 图标生成脚本
-├── icons/                 # 图标资源
+├── popup.html            # 弹窗界面
+├── popup.js              # 弹窗逻辑
+├── content.js            # 游戏核心引擎（含内联CSS）
+├── make-icons.js         # 图标生成脚本
+├── icons/                # 图标资源
 │   ├── icon16.png
-│   ├── icon48.png
-│   └── icon128.png
-└── README.md              # 本文件
+│   ├── icon16.bmp
+│   ├── icon48.bmp
+│   └── icon128.bmp
+└── README.md             # 本文件
 ```
 
 ## 🔧 技术栈
@@ -128,6 +128,23 @@ node make-icons.js
 - `manifest.json` - 扩展配置，定义权限和入口
 
 ## 📋 更新日志
+
+### v2.2 (2026-03-22)
+- ✅ 修复窗口最小化和全屏按钮
+- ✅ 修复拖拽移动功能
+- ✅ 添加帧率实时显示
+- ✅ 重绘恐龙和障碍物为圆形/椭圆形
+- ✅ 添加音效开关按钮 🔊/🔇
+- ✅ 优化游戏性能和稳定性
+
+### v2.1 (2026-03-22)
+- 🐛 修复拖拽变量作用域问题
+- 🎮 基础游戏功能可用
+
+### v2.0 (2026-03-22)
+- 🎉 重写游戏引擎
+- ✨ 全新 UI 设计
+- 🌙 智能夜间模式
 
 ### v1.0.2 (2026-03-22)
 - 🐛 修复图标加载问题（SVG → PNG）
